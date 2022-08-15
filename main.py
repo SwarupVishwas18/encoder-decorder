@@ -4,53 +4,27 @@
 """
 
 from colorama import Fore,Back
-
-print()
-print()
-print(Fore.CYAN+"--------------------------------------------------")
-print(Fore.GREEN+"           ENCRYPTER AND DECRYPTER")
-print(Fore.CYAN+"--------------------------------------------------")
-print()
-print()
+import normal
+import funcs
 
 # Encrypting Function
 
-def encrypter():
-    data = input("Enter the Data : ")
-    str = []
-    for i in data:
-        str.append(chr(ord(i)+5))
-    s = ''.join(str)
-    print("Encrypted Data is : ",end=" ")
-    print(Fore.BLUE,end=" ")
-    print(s)
-
-def decrypter():
-    data = input("Enter the Data : ")
-    str = []
-    for i in data:
-        str.append(chr(ord(i)-5))
-    s = ''.join(str)
-    print("Decrypted Data is : ",end=" ")
-    print(Fore.BLUE,end=" ")
-    print(s)
-
 while True:
-    print(Fore.MAGENTA+" 1. Encrypt Data")
-    print(Fore.MAGENTA+" 2. Decrypt Data")
-    print(Fore.RED+" 3. Exit")
-    print(Fore.GREEN)
-    ch = input("Enter Your Choice : ")
-
-    if(ch=="1"):
-        encrypter()
-    elif(ch=="2"):
-        decrypter()
-    elif(ch=='3'):
-        print(Fore.YELLOW+"Thanks For Visiting!!")
-        exit()
-    else:
-        print(Fore.RED+"Enter Valid Option!!")
+    normal.printBrand("Encoder and Decoder")
+    ch = normal.myMenu(["Encode Text","Decode Text","Encode txt File","Decode txt File","About Me","Quit"])
+    
+    if ch == 1:
+        funcs.encrypter()
+    elif ch == 2:
+        funcs.decrypter()
+    elif ch == 3:
+        funcs.encodeFile()
+    elif ch == 4:
+        funcs.decodeFile()
+    elif ch == 5:
+        normal.aboutMe()
+    elif ch == 6:
+        normal.quitMe()
     print(Back.RESET)
     print(Fore.CYAN+"--------------------------------------------------")
     print(Fore.CYAN+"--------------------------------------------------")
